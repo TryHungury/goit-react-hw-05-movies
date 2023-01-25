@@ -1,16 +1,15 @@
+import { Routes, Route } from "react-router-dom";
+import { Header } from "./header/Header";
+import { Box } from "./box/Box";
+import { Home } from "./home/Home";
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Box height='100vh' display='flex' flexDirection='column' justifyContent='start' alignItems='start' fontSize={6} color='text'>
+    <Header></Header>
+    <Routes>
+      <Route path="" element={ <Home /> } />
+    </Routes>
+    </Box>
   );
 };
