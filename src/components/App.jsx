@@ -6,10 +6,11 @@ import { Home } from "./home/Home";
 export const App = () => {
   return (
     <Box height='100vh' display='flex' flexDirection='column' justifyContent='start' alignItems='start' fontSize={6} color='text'>
-    <Header></Header>
-    <Routes>
-      <Route path="" element={ <Home /> } />
-    </Routes>
+      <Box height='30vh' width="100%"><Header></Header></Box>
+      <Routes>
+        <Route path="" element={ <Home /> } />
+        <Route path="/movies/:movieId"></Route>
+      </Routes>
     </Box>
   );
 };

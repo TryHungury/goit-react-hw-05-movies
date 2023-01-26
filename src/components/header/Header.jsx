@@ -1,8 +1,13 @@
-// import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import styled from "styled-components"
+import  StyledLink_css  from "../header/StyledLink.module.css";
+// import { Box } from "components/box/Box";
+
+const {Styled__Link,  Selected} = StyledLink_css;
 
 const HeaderStyles = styled.header`
 width: 100%;
+height: 10vh;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -10,36 +15,26 @@ border-bottom: ${p=>p.theme.borders.normal};
 border-bottom-left-radius: ${p=>p.theme.radii.normal};
 border-bottom-right-radius: ${p=>p.theme.radii.normal};
 background-color: ${p=>p.theme.colors.background};
+@media screen and (min-width: 320px) {
+    height: 15vh;
+}
+@media screen and (min-width: 720px) {
+    height: 20vh;
+}
+@media screen and (min-width: 1200px) {
+    height: 25vh;
+}
 `
 
 const Nav = styled.nav`
-width: 15%;
+width: 100%;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
 padding: ${p=>p.theme.space[3]}px;
-`
 
-const LinkStyled = styled.button`
-/* min-width: 70px; */
-border: ${p=>p.theme.borders.normal};
-border-radius: ${p=>p.theme.radii.normal};
-font-family: ${p=>p.theme.fonts.heading};
-font-size: ${p=>p.theme.fontSizes[4]}px;
-background-color: ${p=>p.theme.colors.backgroundSecondary};
-color: ${p=>p.theme.colors.accent};
-border-color: ${p=>p.theme.colors.text};
-scale: 1;
-transition: 
-background-color 250ms linear,
-color 250ms linear,
-scale 250ms linear,
-border-color 250ms linear;
-&:hover, &:focus {
-    scale: 1.05;
-    color: ${p=>p.theme.colors.text};
-    border-color: ${p=>p.theme.colors.accent};
-    background-color: ${p=>p.theme.colors.background};
+@media screen and (min-width: 320px) {
+    width: 70%;
 }
 `
 
@@ -47,8 +42,12 @@ export const Header = () => {
     return (
         <HeaderStyles>
             <Nav>
-                <LinkStyled>Home</LinkStyled>
-                <LinkStyled>Movies</LinkStyled>
+                {/* <Box className={Styled__Link}> */}
+                    <NavLink to="/" className={({isActive})=>{return !!isActive ? `${Styled__Link} ${Selected}` : `${Styled__Link}` }}>Home</NavLink>
+                {/* </Box> */}
+                {/* <Box className={Styled__Link}> */}
+                    <NavLink to="/movies" className={({isActive})=>{return !!isActive ? `${Styled__Link} ${Selected}` : `${Styled__Link}` }}>Movies</NavLink>
+                {/* </Box> */}
             </Nav>
         </HeaderStyles>
     )

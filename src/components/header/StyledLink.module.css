@@ -1,0 +1,44 @@
+.Styled__Link {
+text-decoration: none;
+border: 2px solid;
+border-radius: 8px;
+font-family: 'Georgia, serif';
+font-size: 24px;
+background-color: #aaa;
+color: #fff;
+border-color: #212121;
+scale: 1;
+padding: 8px;
+transition: 
+background-color 250ms linear,
+color 250ms linear,
+scale 250ms linear,
+border-color 250ms linear;
+}
+
+@media screen and (min-width: 320px) {
+    .Styled__Link {
+        font-size: 32px;
+    }
+}
+@media screen and (min-width: 720px) {
+    .Styled__Link {
+        font-size: 48px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .Styled__Link {
+        font-size: 64px;
+    }
+}
+
+.Styled__Link:hover, .Styled__Link:focus {
+    scale: 1.05;
+    color: #212121;
+    border-color: #fff;
+    background-color: #ccc;
+}
+
+.Selected {
+    text-decoration: underline;
+}

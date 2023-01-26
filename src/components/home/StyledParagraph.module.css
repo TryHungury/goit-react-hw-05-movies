@@ -1,0 +1,35 @@
+
+.Paragraph {
+text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif';
+font-weight: 700;
+font-size: 16px;
+padding: 8px;
+background-color: #aaa;
+color: #fff;
+
+margin-bottom: 16px;
+margin-top: 0;
+box-shadow: 5px 5px 1px 4px #212121;
+border-radius: 8px;
+}
+
+@media screen and (min-width: 320px) {
+    .Paragraph {
+        font-size: 20px;
+    }
+}
+@media screen and (min-width: 720px) {
+    .Paragraph {
+    margin-bottom: 0;
+    margin: 16px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .Paragraph {
+        font-size: 24px;
+    }
+}
