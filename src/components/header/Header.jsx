@@ -7,7 +7,7 @@ const {Styled__Link,  Selected} = StyledLink_css;
 
 const HeaderStyles = styled.header`
 width: 100%;
-height: 10vh;
+height: 100px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -16,13 +16,13 @@ border-bottom-left-radius: ${p=>p.theme.radii.normal};
 border-bottom-right-radius: ${p=>p.theme.radii.normal};
 background-color: ${p=>p.theme.colors.background};
 @media screen and (min-width: 320px) {
-    height: 15vh;
+    height: 150px;
 }
 @media screen and (min-width: 720px) {
-    height: 20vh;
+    height: 200px;
 }
 @media screen and (min-width: 1200px) {
-    height: 25vh;
+    height: 250px;
 }
 `
 

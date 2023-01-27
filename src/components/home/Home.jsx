@@ -3,8 +3,8 @@ import { fetchApi } from "components/fetchApi/FetchApi"
 import { useEffect } from "react";
 import { useState } from "react"
 import styled from "styled-components";
-import Paragraph_css from '../home/StyledParagraph.module.css';
 import { Link } from "react-router-dom";
+import Paragraph_css from '../home/StyledParagraph.module.css';
 
 const {Paragraph} = Paragraph_css;
 
@@ -123,11 +123,10 @@ export const Home = () => {
     const [filmsArray, setFilmsArray] = useState([]);
     
     useEffect(()=>{
-        fetchApi().then(({data})=>{setFilmsArray(data.results)});
-            
+        fetchApi().then(({data})=>{setFilmsArray(data.results)});  
     }, [])
-    console.log(filmsArray)
-    
+
+    // console.log(filmsArray)
     return (
         <Box width="100%" display="flex" flexDirection="column" >
             <Box><Title>Popular movies</Title></Box>
