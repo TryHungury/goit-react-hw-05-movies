@@ -91,7 +91,7 @@ max-width: 200px;
 }
 `
 
-export const Home = () => {
+const Home = () => {
     const [filmsArray, setFilmsArray] = useState([]);
     const locate = useLocation()
     // const [activeLoader, setActiveLoader] = useState(true);
@@ -122,3 +122,5 @@ export const Home = () => {
         </Box>
     )
 }
+
+export default Home;

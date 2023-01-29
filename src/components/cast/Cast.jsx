@@ -47,7 +47,7 @@ const OriginalName = styled(Item)`
   /* text-decoration: underline; */
 `;
 
-export const Cast = () => {
+const Cast = () => {
     // const locate = useLocation()
     const params = useParams()
     const [castArray, setCatsArray] = useState(null)
@@ -76,3 +76,5 @@ export const Cast = () => {
     </Box>
     )
 }
+
+export default Cast;

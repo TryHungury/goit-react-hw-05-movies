@@ -1,14 +1,15 @@
 import { Box } from "components/box/Box"
 import { fetchOnMoviesId } from "components/fetchApi/FetchApi"
-import { useEffect } from "react"
+import { Suspense, useEffect } from "react"
 import { useState } from "react"
 import styled, { keyframes } from 'styled-components';
 import { Link, Outlet, useLocation, useParams } from "react-router-dom"
 import  StyledLink_css  from "../header/StyledLink.module.css";
 import  StyledButton_css  from "../movieidpage/MovieIdButton.module.css";
+import LoaderWrapper from "components/loader/Loader";
 // import Icon from "../icon/Icon";
 
-const { cast, review, } = StyledButton_css;
+const { cast, review } = StyledButton_css;
 
 const {to_back} = StyledLink_css;
 
@@ -204,7 +205,7 @@ const Date = styled.p`
   }
 `;
 
-export const MovieIdPage = () => {
+const MovieIdPage = () => {
     const params = useParams()
     const [moviesList, setMoviesList] = useState([])
     const [error, setError] = useState(null)
@@ -244,7 +245,9 @@ export const MovieIdPage = () => {
                         <Link className={cast} to={"cast"} state={{from: locate.state?.from}}>Cast</Link>
                         <Link className={review} to={"reviews"} state={{from: locate.state?.from}}>Reviews</Link>
                     </Box>
-                    <Outlet></Outlet>
+                    <Suspense fallback={<LoaderWrapper></LoaderWrapper>}>
+                      <Outlet></Outlet>
+                    </Suspense>
                 </Box>
             </> 
             }
@@ -254,3 +257,5 @@ export const MovieIdPage = () => {
         </Box>
     )
 }
+
+export default MovieIdPage;

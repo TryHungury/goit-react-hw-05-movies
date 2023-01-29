@@ -113,7 +113,7 @@ const ReviewsLink = styled.a`
   }
 `;
 
-export const Reviews = () => {
+const Reviews = () => {
     const [reviewsArray, setReviewsArray] = useState(null)
     const [error, setError] = useState(null)
     const params = useParams()
@@ -144,3 +144,5 @@ export const Reviews = () => {
         </Box>
     )
 }
+
+export default Reviews;

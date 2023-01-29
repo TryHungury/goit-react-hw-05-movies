@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import { useSearchParams } from "react-router-dom"
 
 
- export const Movies = () => {
+const Movies = () => {
     const [data, setData] = useState([])
     const [searchParams] = useSearchParams();
 
@@ -33,3 +33,5 @@ import { useSearchParams } from "react-router-dom"
 
     )
  }
+
+ export default Movies;
