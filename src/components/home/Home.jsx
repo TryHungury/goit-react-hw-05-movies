@@ -3,7 +3,7 @@ import { fetchApi } from "components/fetchApi/FetchApi"
 import { useEffect } from "react";
 import { useState } from "react"
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Paragraph_css from '../home/StyledParagraph.module.css';
 
 const {Paragraph} = Paragraph_css;
@@ -72,35 +72,6 @@ margin-bottom: ${p=>p.theme.space[6]}px;
 }
 `
 
-// const Paragraph = styled.p`
-// display: flex;
-// align-items: center;
-// justify-content: center;
-// font-family: ${p=>p.theme.fonts.body};
-// font-weight: ${p=>p.theme.fontWeights.heading};
-// font-size: ${p=>p.theme.fontSizes[2]}px;
-// padding: ${p=>p.theme.space[3]}px;
-// background-color: ${p=>p.theme.colors.backgroundSecondary};
-// color: ${p=>p.theme.colors.accent};
-// /* margin: ${p=>p.theme.space[4]}px; */
-// margin-bottom: ${p=>p.theme.space[4]}px;
-// margin-top: 0;
-// box-shadow: 5px 5px 1px 4px ${p=>p.theme.colors.text};
-// border-radius: ${p=>p.theme.radii.normal};
-
-// @media screen and (min-width: 320px) {
-//     font-size: ${p=>p.theme.fontSizes[3]}px;
-// }
-// @media screen and (min-width: 720px) {
-//     margin-bottom: 0;
-//     margin: ${p=>p.theme.space[4]}px;
-//     font-size: ${p=>p.theme.fontSizes[3]}px;
-// }
-// @media screen and (min-width: 1200px) {
-//     font-size: ${p=>p.theme.fontSizes[4]}px;
-// }
-// `
-
 const Image = styled.img`
 width: 100%;
 max-width: 200px;
@@ -121,11 +92,13 @@ max-width: 200px;
 
 export const Home = () => {
     const [filmsArray, setFilmsArray] = useState([]);
+    const locate = useLocation()
     
     useEffect(()=>{
         fetchApi().then(({data})=>{setFilmsArray(data.results)});  
     }, [])
 
+    // console.log(locate)
     // console.log(filmsArray)
     return (
         <Box width="100%" display="flex" flexDirection="column" >
@@ -135,7 +108,7 @@ export const Home = () => {
                     let pathToImg = 'https://image.tmdb.org/t/p/w500' + backdrop_path;
                     return (
                         <ListItem key={id}>
-                            <Link to={`/movies/${id}`} className={Paragraph}>{title || name}</Link>
+                            <Link to={`/movies/${id}`} className={Paragraph} state={{from: locate}}>{title || name}</Link>
                             <Image src={pathToImg} alt={title || name} />
                         </ListItem>
                     )

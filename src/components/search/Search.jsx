@@ -1,8 +1,6 @@
 import { Box } from "components/box/Box"
-// import { fetchOnSearch } from "components/fetchApi/FetchApi"
 import { useState } from "react"
 import { useSearchParams } from "react-router-dom"
-// { useLocation, useParams, 
 import styled from "styled-components"
 
 const Form = styled.form`
@@ -110,11 +108,11 @@ border-color 250ms linear;
 
 export const Search = ({ makeFetch }) => {
     const [searchValue, setSearchValue] = useState("")
-    const [searchParams, setSearchParams] = useSearchParams('')
+    const [, setSearchParams] = useSearchParams('')
 
     const handleOnChange = (event) => {
         let value = event.target.value;
-        console.log(value)
+        // console.log(value)
 
         setSearchValue(value.trim());
     }
@@ -132,15 +130,6 @@ export const Search = ({ makeFetch }) => {
         setSearchValue("");
     }
 
-    console.log(searchParams)
-    // const handleOnChange = (event) => {
-    //     let searchValue = event.target.value;
-    //     // console.log(searchValue)
-
-    //     setTextSearch(searchValue.trim());
-    // }
-
-    // console.log(listMarkup.data?.results ?? "bad")
     return (
             <Form onSubmit={handleSubmit}>
                 <Box display="flex" justifyContent="center" alignItems="center" flexGrow="1">
