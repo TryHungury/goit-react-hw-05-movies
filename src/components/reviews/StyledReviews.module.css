@@ -1,0 +1,23 @@
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .review {
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+  }
+  
+  @media only screen and (max-width: 720px) {
+    .review {
+      width: 250px;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .review {
+      width: 200px;
+    }
+  }

@@ -25,3 +25,16 @@ export async function fetchOnMoviesId (moviesId) {
 
     return data;
 }
+
+
+export async function fetchOnCast (moviesId) {
+    const data = await axios.get(`${BASE_URL_MOVIESID}${moviesId}/credits?api_key=${API_KEY}`)
+
+    return data;
+}
+
+export async function fetchOnReviews (moviesId) {
+    const data = await axios.get(`${BASE_URL_MOVIESID}${moviesId}/reviews?api_key=${API_KEY}`)
+
+    return data;
+}

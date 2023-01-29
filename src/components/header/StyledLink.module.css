@@ -18,17 +18,17 @@ border-color 250ms linear;
 
 @media screen and (min-width: 320px) {
     .Styled__Link {
-        font-size: 32px;
+        font-size: 24px;
     }
 }
 @media screen and (min-width: 720px) {
     .Styled__Link {
-        font-size: 48px;
+        font-size: 32px;
     }
 }
 @media screen and (min-width: 1200px) {
     .Styled__Link {
-        font-size: 64px;
+        font-size: 44px;
     }
 }
 
@@ -42,3 +42,51 @@ border-color 250ms linear;
 .Selected {
     text-decoration: underline;
 }
+
+.to_back {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: 20%;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.2);
+    position: relative;
+    scale: 1;
+    transition: scale 250ms linear;
+  }
+  
+  .to_back:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    border-left: solid 10px #fff;
+    border-top: solid 10px transparent;
+    border-bottom: solid 10px transparent;
+    animation: arrow-on 0.5s ease-in-out forwards;
+  }
+  
+  .to_back:hover {
+    scale: 1.05;
+    /* transform: translateY(-2px); */
+    box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.2);
+  }
+  
+  .to_back:hover:before {
+    animation: arrow-back 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes arrow-on {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(-180deg); }
+  }
+
+  @keyframes arrow-back {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(180deg); }
+  }

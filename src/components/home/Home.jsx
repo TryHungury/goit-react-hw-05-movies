@@ -5,6 +5,7 @@ import { useState } from "react"
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import Paragraph_css from '../home/StyledParagraph.module.css';
+// import LoaderWrapper from "components/loader/Loader";
 
 const {Paragraph} = Paragraph_css;
 
@@ -93,15 +94,19 @@ max-width: 200px;
 export const Home = () => {
     const [filmsArray, setFilmsArray] = useState([]);
     const locate = useLocation()
+    // const [activeLoader, setActiveLoader] = useState(true);
     
     useEffect(()=>{
-        fetchApi().then(({data})=>{setFilmsArray(data.results)});  
+        // setActiveLoader(false);
+        fetchApi().then(({data})=>{setFilmsArray(data.results)});
     }, [])
-
+    
+    // console.log(activeLoader)
     // console.log(locate)
     // console.log(filmsArray)
     return (
         <Box width="100%" display="flex" flexDirection="column" >
+            {/* {activeLoader && <div>{LoaderWrapper()}</div>} */}
             <Box><Title>Popular movies</Title></Box>
             <Box as={"ul"} display="flex" flexWrap="wrap" justifyContent="space-evenly" align-items= "center" pr={4} pl={4}>
                 {filmsArray.map(({id, title, name, backdrop_path})=>{
