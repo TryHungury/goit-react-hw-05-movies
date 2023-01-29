@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import  StyledLink_css  from "../header/StyledLink.module.css";
 // import { Box } from "components/box/Box";
 
@@ -26,28 +26,28 @@ const {Styled__Link,  Selected} = StyledLink_css;
 // }
 // `
 
-const animateHeader = keyframes`
-  0% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-`;
+// const animateHeader = keyframes`
+//   0% {
+//     transform: scale(1.1);
+//   }
+//   50% {
+//     transform: scale(1.15);
+//   }
+//   100% {
+//     transform: scale(1.1);
+//   }
+// `;
 
 const HeaderStyles = styled.header`
   position: absolute;
-  width: 100%;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 90px;
   background-color: #333;
   color: ${p=>p.theme.colors.accent};
-  animation: ${animateHeader} 2s ease-in-out infinite;
 
   @media (max-width: 767px) {
     height: 70px;
